@@ -1,0 +1,85 @@
+experimento:
+  id_experimento: 32
+  modelo: "sobretiempos"
+  descripcion: "rf lightb lr, todos los datasets, dataset v4 sobretiempos"
+
+lightgbm:
+  script: "algoritmos/lightgbm_algorithm.py"
+  datasets:
+    - "dataframe_ceros_v4"
+    - "dataframe_nuevenueve_v4"
+    - "dataframe_sinnulls_v4"
+    - "dataframe_v4"
+  resampling:
+    - 
+  scaling:
+    - "Standard"
+  hiperparametros:
+    n_estimators:
+    - 100
+    - 200
+    boosting_type:
+    - 'gbdt' 
+    - 'dart' 
+    - 'goss'
+    is_unbalance:
+     - True
+    n_jobs:
+    - 4
+
+regresion_logistica:
+  script: "algoritmos/logistic_regression.py"
+  datasets:
+    - "dataframe_ceros_v4"
+    - "dataframe_nuevenueve_v4"
+    - "dataframe_sinnulls_v4"
+  resampling:
+    - 
+  scaling:
+    - "Standard"
+  hiperparametros:
+    penalty:
+      - l1
+      - l2
+    C:
+      - 0.0001
+      - 0.001
+      - 1
+    #  - 10
+    random_state:
+      - 42
+    class_weight:
+      - "balanced"
+
+
+
+random_forest:
+  script: "algoritmos/random_forest.py"
+  datasets:
+    - "dataframe_ceros_v4"
+    - "dataframe_nuevenueve_v4"
+    - "dataframe_sinnulls_v4"
+    - "dataframe_v4"
+  resampling:
+    - 
+  scaling:
+    - "Standard"
+    #- "No"
+  hiperparametros:
+    max_depth:
+    - Null
+    - 10
+    - 50
+    max_features:
+    - auto
+    min_samples_split:
+    - 2
+    - 5
+    - 10
+    n_estimators:
+    - 5
+    - 100
+    - 500
+    n_jobs:
+    - 4
+

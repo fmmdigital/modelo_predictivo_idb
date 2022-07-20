@@ -1,0 +1,35 @@
+Modelos seleccionados:
+
+**Sobrecostos**
+Mejor roc-auc:
+regresion logistica {'penalty': 'l2', 'C': 1, 'random_state': 42, 'class_weight': 'balanced'} - faltantes eliminacion - ROC AUC 0.85, ROC AUC TEST 0.78. F1 Score 0.216
+Exp: 38
+id_modelo: 842088
+
+Mejor f1-score:
+lightgbm {'n_estimators': 3000, 'boosting_type': 'dart', 'is_unbalance': True, 'n_jobs': 4} - faltantes reemplazo por ceros -. ROC AUC 0.87 Roc AUC test 0.667, F1 score 0.38
+Exp: 38
+id_modelo: 736603
+
+**Sobretiempos**
+mejor roc auc train
+lightgbm {'n_estimators': 100, 'boosting_type': 'dart', 'is_unbalance': True, 'n_jobs': 4} - faltantes reemplazo 999 - roc auc test 0.83, roc auc train 0.779, f1 score 0.13
+Exp: 37
+id_modelo: 570029
+
+mejor f1score:
+lightgbm {'n_estimators': 1000, 'boosting_type': 'goss', 'is_unbalance': True, 'n_jobs': 4} - faltantes reemplazo por ceros -. 0.81 roc auc test , 0.59 roc auc train, 0.257 f1score
+Exp: 37
+id_modelo: 887569
+
+mejor regresion:
+regresion_logistica {'penalty': 'l1', 'C': 1, 'random_state': 42, 'class_weight': 'balanced'} - faltantes reemplazo por 999 - 0.82 roc auc test, 0.766 roc auc trin, f1score 0.10
+Exp: 37
+id_modelo: 311083
+
+
+
+
+
+
+

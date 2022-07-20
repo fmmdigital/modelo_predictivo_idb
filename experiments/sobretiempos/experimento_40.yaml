@@ -1,0 +1,22 @@
+experimento:
+  id_experimento: 40
+  modelo: "sobretiempos"
+  descripcion: "Guardo y_pred en csv del experimento 37"
+
+lightgbm:
+  script: "algoritmos/lightgbm_algorithm.py"
+  datasets:
+    - "dataframe_ceros_v4"
+  resampling:
+    - 
+  scaling:
+    - "Standard"
+  hiperparametros:
+    n_estimators:
+    - 1000
+    boosting_type:
+    - 'goss'
+    is_unbalance:
+     - True
+    n_jobs:
+    - 4

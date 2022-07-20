@@ -1,0 +1,63 @@
+experimento:
+  id_experimento: 36
+  modelo: "sobretiempos"
+  descripcion: "rf lightb lr, dataset ceros,resampling 3k nestimators dataset v4 sobretiempos"
+
+
+regresion_logistica:
+  script: "algoritmos/logistic_regression.py"
+  datasets:
+    - "dataframe_ceros_v4"
+  resampling:
+    #- "SMOTE"
+    #- "random_oversampler"
+    ##- "undersamping_knn"
+    #- "undersampling_EditedNearestNeighbours"
+    - "SMOTEENN"
+  scaling:
+    - "Standard"
+  hiperparametros:
+    penalty:
+      - l1
+      - l2
+    C:
+      - 0.0001
+      - 0.001
+      - 1
+    #  - 10
+    random_state:
+      - 42
+    #class_weight:
+     # - "balanced"
+
+
+lightgbm:
+  script: "algoritmos/lightgbm_algorithm.py"
+  datasets:
+    - "dataframe_ceros_v4"
+   # - "dataframe_nuevenueve_v4"
+   # - "dataframe_sinnulls_v4"
+   # - "dataframe_v4"
+  resampling:
+    #- "SMOTE"
+    #- "random_oversampler"
+    #- "undersamping_knn"
+    #- "undersampling_EditedNearestNeighbours"
+    - "SMOTEENN"
+  scaling:
+    - "Standard"
+  hiperparametros:
+    n_estimators:
+    #- 100
+    #- 200
+    #- 500
+    #- 1000
+    - 3000
+    boosting_type:
+    - 'dart'
+    - 'gbdt' 
+    - 'goss'
+    is_unbalance:
+    # - True
+    n_jobs:
+    - 4

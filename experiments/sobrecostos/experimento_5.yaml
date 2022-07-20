@@ -1,0 +1,94 @@
+experimento:
+  id_experimento: 5
+  modelo: "sobrecostos"
+  descripcion: "construccion de pipeline con log regresion, random forest, xgb, dummy, adaboost"
+
+
+regresion_logistica:
+  script: "algoritmos/logistic_regression.py"
+  datasets:
+    - "dataframe_sinnulls_simple"
+  hiperparametros:
+    penalty:
+   #   - l1
+      - l2
+    C:
+   #   - 0.0001
+   #   - 0.001
+      - 1
+    #  - 10
+    random_state:
+      - 42
+
+    class_weight:
+     - 
+
+random_forest:
+  script: "algoritmos/random_forest.py"
+  datasets:
+    - "dataframe_sinnulls_simple"
+  hiperparametros:
+    max_depth:
+  #  - Null
+    - 10
+  #  - 50
+    max_features:
+    - auto
+    min_samples_split:
+    - 2
+  #  - 5
+  #  - 10
+    n_estimators:
+      - 100
+   #   - 500
+    n_jobs:
+    - 4
+
+xgb:
+  script: "algoritmos/xgb.py"
+  datasets:
+    - "dataframe_sinnulls_simple"
+  hiperparametros:
+    n_estimators:
+      - 100
+    #  - 500
+    max_depth:
+      - 3
+    #  - 5
+    #  - 10
+    min_child_weight:
+     # - 1.0e-5
+     # - 1.0e-2
+      - 1
+     # - 1.0e2
+    scale_pos_weight:
+      - 1
+     # - 65
+    learning_rate:
+     # - 0.05
+     # - 0.3
+      - 1
+    n_jobs:
+      - 4
+
+dummy_classifier:
+  script: "algoritmos/dummy_classifier.py"
+  datasets:
+    - "dataframe_sinnulls_simple"
+  hiperparametros:
+    strategy:
+      - 'stratified'
+      
+adaboost:
+  script: "algoritmos/adaboost.py"
+  datasets:
+    - "dataframe_sinnulls_simple"
+  hiperparametros:
+     algorithm:
+       - SAMME
+     #  - SAMME.R
+     n_estimators:
+     #  - 1
+       - 10
+     #  - 10000
+

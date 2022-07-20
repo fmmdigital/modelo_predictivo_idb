@@ -1,0 +1,31 @@
+experimento:
+  id_experimento: 34
+  modelo: "sobretiempos"
+  descripcion: "rf lightb lr, dataset ceros, 3k nestimators dataset v4 sobretiempos"
+
+lightgbm:
+  script: "algoritmos/lightgbm_algorithm.py"
+  datasets:
+    - "dataframe_ceros_v4"
+   # - "dataframe_nuevenueve_v4"
+   # - "dataframe_sinnulls_v4"
+   # - "dataframe_v4"
+  resampling:
+    - 
+  scaling:
+    - "Standard"
+  hiperparametros:
+    n_estimators:
+    #- 100
+    #- 200
+    #- 500
+    #- 1000
+    - 3000
+    boosting_type:
+    - 'dart'
+    - 'gbdt' 
+    - 'goss'
+    is_unbalance:
+     - True
+    n_jobs:
+    - 4

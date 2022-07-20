@@ -1,0 +1,40 @@
+experimento:
+  id_experimento: 19
+  modelo: "sobrecostos"
+  descripcion: "El mejor RF con nuevo datafarme"
+
+random_forest:
+  script: "algoritmos/random_forest.py"
+  datasets:
+   # - "dataframe_sinnulls_simple"
+   # - "dataframe_sinnulls_simple_ohe"
+    - "dataframe_v2"
+    - "dataframe_ceros_v2"
+    - "dataframe_nuevenueve_v2"
+    - "dataframe_sinnulls_v2"
+  scaling:
+    - "Standard"
+  hiperparametros:
+    max_depth:
+    #- Null
+    - 10
+    #- 50
+    max_features:
+    - auto
+    min_samples_split:
+    #- 2
+    #- 5
+    - 10
+    - 15
+    n_estimators:
+    - 5
+    - 100
+    #- 250
+    #- 500
+    random_state:
+    - 42
+    class_weight:
+    - "balanced"
+    # - "balanced_subsample"
+    n_jobs:
+    - 4

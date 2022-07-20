@@ -1,0 +1,41 @@
+experimento:
+  id_experimento: 39
+  modelo: "sobretiempos"
+  descripcion: "modelos seleccionados sobretiempos"
+
+lightgbm:
+  script: "algoritmos/lightgbm_algorithm.py"
+  datasets:
+    - "dataframe_nuevenueve_v4"
+  resampling:
+    - 
+  scaling:
+    - "Standard"
+  hiperparametros:
+    n_estimators:
+    - 4
+    boosting_type:
+    - 'dart'
+    is_unbalance:
+     - True
+    n_jobs:
+    - 4
+
+regresion_logistica:
+  script: "algoritmos/logistic_regression.py"
+  datasets:
+    - "dataframe_nuevenueve_v4"
+  resampling:
+    - 
+  scaling:
+    - "Standard"
+  hiperparametros:
+    penalty:
+      - l1
+    C:
+      - 0.001
+    random_state:
+      - 42
+    class_weight:
+      - "balanced"
+

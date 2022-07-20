@@ -1,0 +1,129 @@
+experimento:
+  id_experimento: 29
+  modelo: "sobrecostos"
+  descripcion: "Mejores roc auc Corriendo los algoritmos con mejor resultado para volver a generar el log porque pise el log al guardarlo como csv"
+
+
+lightgbm:
+  script: "algoritmos/lightgbm_algorithm.py"
+  datasets:
+    - "dataframe_ceros_v3"
+    - "dataframe_nuevenueve_v3"
+    - "dataframe_sinnulls_v3"
+    - "dataframe_v3"
+  resampling:
+    - 
+  scaling:
+    - "Standard"
+  hiperparametros:
+    n_estimators:
+    - 100
+   # - 500
+   # - 1000
+   # - 3000
+   # - 4000
+    boosting_type:
+    #- 'gbdt' 
+    - 'dart' 
+    #- 'goss'
+    is_unbalance:
+     - True
+    n_jobs:
+    - 4
+
+xgb:
+  script: "algoritmos/xgb.py"
+  datasets:
+    - "dataframe_ceros_v3"
+    - "dataframe_nuevenueve_v3"
+    - "dataframe_sinnulls_v3"
+    - "dataframe_v3"
+  resampling:
+    - 
+  scaling:
+    - "Standard"
+  hiperparametros:
+    n_estimators:
+    #  - 5
+      - 100
+    #  - 200
+    max_depth:
+    #  - 3
+      - 5
+      #- 10
+    min_child_weight:
+     # - 0.00001
+      - 0.01
+      - 1
+    scale_pos_weight:
+     # - 1
+      - 75
+      - 96
+    learning_rate:
+     # - 0.05
+      - 0.3
+     # - 1
+    n_jobs:
+      - 4
+
+random_forest:
+  script: "algoritmos/random_forest.py"
+  datasets:
+    - "dataframe_ceros_v3"
+    - "dataframe_nuevenueve_v3"
+    - "dataframe_sinnulls_v3"
+    - "dataframe_v3"
+  resampling:
+    - 
+  scaling:
+    - "Standard"
+  hiperparametros:
+    max_depth:
+    #- Null
+    - 10
+    #- 50
+    max_features:
+    - auto
+    min_samples_split:
+    #- 2
+    #- 5
+    - 10
+    - 15
+    n_estimators:
+    #- 5
+    - 100
+    - 250
+    #- 500
+    random_state:
+    - 42
+    class_weight:
+     - "balanced"
+     # - 
+    # - "balanced_subsample"
+    n_jobs:
+    - 4
+
+regresion_logistica:
+  script: "algoritmos/logistic_regression.py"
+  datasets:
+    - "dataframe_ceros_v3"
+    - "dataframe_nuevenueve_v3"
+    - "dataframe_sinnulls_v3"
+  resampling:
+    - 
+  scaling:
+    - "Standard"
+  hiperparametros:
+    penalty:
+      - l1
+      - l2
+    C:
+    #  - 0.0001
+      #- 0.001
+      - 1
+      - 10
+    random_state:
+      - 42
+    class_weight:
+      - "balanced"
+

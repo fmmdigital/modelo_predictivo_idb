@@ -1,0 +1,29 @@
+experimento:
+  id_experimento: 26
+  modelo: "sobrecostos"
+  descripcion: "Lightgbm"
+
+lightgbm:
+  script: "algoritmos/lightgbm_algorithm.py"
+  datasets:
+   # - "dataframe_v3_categorical"
+    - "dataframe_ceros_v3"
+  resampling:
+    - 
+  scaling:
+    - "Standard"
+  hiperparametros:
+    n_estimators:
+   # - 100
+   # - 500
+   # - 1000
+   # - 3000
+    - 4000
+    boosting_type:
+    - 'gbdt' 
+    - 'dart' 
+    - 'goss'
+    is_unbalance:
+     - True
+    n_jobs:
+    - 4

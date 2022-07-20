@@ -1,0 +1,41 @@
+experimento:
+  id_experimento: 38
+  modelo: "sobrecostos"
+  descripcion: "modelos seleccionados sobrecostos"
+
+
+regresion_logistica:
+  script: "algoritmos/logistic_regression.py"
+  datasets:
+    - "dataframe_sinnulls_v3"
+  resampling:
+    - 
+  scaling:
+    - "Standard"
+  hiperparametros:
+    penalty:
+      - l2
+    C:
+      - 1
+    random_state:
+      - 42
+    class_weight:
+      - "balanced"
+
+lightgbm:
+  script: "algoritmos/lightgbm_algorithm.py"
+  datasets:
+    - "dataframe_nuevenueve_v3"
+  resampling:
+    - 
+  scaling:
+    - "Standard"
+  hiperparametros:
+    n_estimators:
+    - 3000
+    boosting_type:
+    - 'dart'
+    is_unbalance:
+     - True
+    n_jobs:
+    - 4

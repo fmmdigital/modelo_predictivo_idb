@@ -1,0 +1,39 @@
+experimento:
+  id_experimento: 18
+  modelo: "sobrecostos"
+  descripcion: "El mejor XGB con dataset con missings"
+
+xgb:
+  script: "algoritmos/xgb.py"
+  datasets:
+   # - "dataframe_sinnulls_simple"
+   # - "dataframe_sinnulls_simple_ohe"
+    - "dataframe"
+    - "dataframe_ceros"
+    - "dataframe_nuevenueve"
+    - "dataframe_sinnulls"
+  scaling:
+    - "Standard"
+  hiperparametros:
+    n_estimators:
+      - 5
+      - 100
+    #   - 500
+    max_depth:
+     # - 3
+     # - 5
+      - 10
+    min_child_weight:
+     # - 0.00001
+      - 0.01
+     # - 1
+    scale_pos_weight:
+     # - 1
+     # - 75
+      - 97
+    learning_rate:
+      - 0.05
+     # - 0.3
+     # - 1
+    n_jobs:
+      - 4

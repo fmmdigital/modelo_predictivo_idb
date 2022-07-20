@@ -1,0 +1,52 @@
+experimento:
+  id_experimento: 12
+  modelo: "sobrecostos"
+  descripcion: "test de agregado de metricas y datasets"
+
+
+regresion_logistica:
+  script: "algoritmos/logistic_regression.py"
+  datasets:
+    - "dataframe_sinnulls_simple"
+    - "dataframe_ceros"
+    - "dataframe_nuevenueve"
+    - "dataframe_sinnulls"
+  hiperparametros:
+    penalty:
+   #   - l1
+      - l2
+    C:
+   #   - 0.0001
+   #   - 0.001
+      - 1
+    #  - 10
+    random_state:
+      - 42
+
+    class_weight:
+     - #{0:98,1:2} # Ver esta implementacion
+     - 
+
+random_forest:
+  script: "algoritmos/random_forest.py"
+  datasets:
+    - "dataframe_sinnulls_simple"
+    - "dataframe_ceros"
+    - "dataframe_nuevenueve"
+    - "dataframe_sinnulls"
+  hiperparametros:
+    max_depth:
+  #  - Null
+    - 10
+  #  - 50
+    max_features:
+    - auto
+    min_samples_split:
+    - 2
+  #  - 5
+  #  - 10
+    n_estimators:
+      - 100
+   #   - 500
+    n_jobs:
+    - 4

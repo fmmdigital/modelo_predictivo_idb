@@ -1,0 +1,191 @@
+experimento:
+  id_experimento: 16
+  modelo: "sobrecostos"
+  descripcion: "todos los algoritmos todos los datasets y hiperparametros"
+
+
+# #regresion_logistica:
+#   script: "algoritmos/logistic_regression.py"
+#   datasets:
+#     - "dataframe_sinnulls_simple"
+#    # - "dataframe_ceros"
+#    # - "dataframe_nuevenueve"
+#    # - "dataframe_sinnulls"
+#   scaling:
+#     - "Standard"
+#   hiperparametros:
+#     penalty:
+#       - l1
+#       - l2
+#     C:
+#     #  - 0.0001
+#       - 0.001
+#       - 1
+#     #  - 10
+#     random_state:
+#       - 42
+#     class_weight:
+#       - "balanced"
+#       - 
+
+# random_forest:
+#   script: "algoritmos/random_forest.py"
+#   datasets:
+#     - "dataframe_sinnulls_simple"
+#   #  - "dataframe_ceros"
+#   #  - "dataframe_nuevenueve"
+#   #  - "dataframe_sinnulls"
+#   scaling:
+#     - "Standard"
+#   hiperparametros:
+#     max_depth:
+#     - Null
+#     - 10
+#     - 50
+#     max_features:
+#     - auto
+#     min_samples_split:
+#     - 2
+#     - 5
+#     - 10
+#     n_estimators:
+#     - 5
+#     - 100
+#     #- 500
+#     random_state:
+#     - 42
+#     class_weight:
+#     - "balanced"
+#     - "balanced_subsample"
+#     n_jobs:
+#     - 4
+
+# xgb:
+#   script: "algoritmos/xgb.py"
+#   datasets:
+#     - "dataframe_sinnulls_simple"
+#    # - "dataframe_ceros"
+#    # - "dataframe_nuevenueve"
+#    # - "dataframe_sinnulls"
+#   scaling:
+#     - "Standard"
+#   hiperparametros:
+#     n_estimators:
+#        - 5
+#        - 100
+#        - 500
+#     max_depth:
+#       - 3
+#       - 5
+#       - 10
+#     min_child_weight:
+#       - 0.00001
+#       - 0.01
+#       - 1
+#     scale_pos_weight:
+#       - 1
+#       - 75
+#       - 97
+#     learning_rate:
+#       - 0.05
+#       - 0.3
+#       - 1
+#     n_jobs:
+#       - 4
+
+# dummy_classifier:
+#   script: "algoritmos/dummy_classifier.py"
+#   datasets:
+#     - "dataframe_sinnulls_simple"
+#     #- "dataframe_ceros"
+#     #- "dataframe_nuevenueve"
+#    # - "dataframe_sinnulls"
+#   scaling:
+#     - "Standard"
+#   hiperparametros:
+#     strategy:
+#       - 'stratified'
+      
+# adaboost:
+#   script: "algoritmos/adaboost.py"
+#   datasets:
+#     - "dataframe_sinnulls_simple"
+#    # - "dataframe_ceros"
+#    # - "dataframe_nuevenueve"
+#    # - "dataframe_sinnulls"
+#   scaling:
+#     - "Standard"
+#   hiperparametros:
+#      algorithm:
+#        - SAMME
+#        - SAMME.R
+#      n_estimators:
+#        - 1
+#        - 10
+#        - 10000
+
+# SVM:
+#   script: "algoritmos/svm.py"
+#   datasets:
+#     - "dataframe_sinnulls_simple"
+#    # - "dataframe_ceros"
+#    # - "dataframe_nuevenueve"
+#    # - "dataframe_sinnulls"
+#   scaling:
+#     - "Standard"
+#   hiperparametros:
+#       C:
+#       # - 1.0e-05
+#         - 0.0001
+#       # - 0.001
+#       # - 0.01
+#         - 0.1
+#       # - 1
+#         - 10
+#       kernel:
+#         - linear
+
+KNN:
+  script: "algoritmos/knn.py"
+  datasets:
+    - "dataframe_sinnulls_simple"
+   # - "dataframe_ceros"
+   # - "dataframe_nuevenueve"
+   # - "dataframe_sinnulls"
+  scaling:
+    - "Standard"
+  hiperparametros:
+      algorithm:
+        - auto
+        - ball_tree
+        - kd_tree
+      n_neighbors:
+        - 1
+        - 5
+      # - 10
+        - 50
+      weights:
+        - uniform
+        - distance
+
+SGD:
+  script: "algoritmos/sgd.py"
+  datasets:
+    - "dataframe_sinnulls_simple"
+  #  - "dataframe_ceros"
+  #  - "dataframe_nuevenueve"
+  #  - "dataframe_sinnulls"
+  scaling:
+    - "Standard"
+  hiperparametros:
+      loss:
+        - hinge
+        - log
+        - perceptron
+      penalty:
+        - l2
+        - l1
+        - elasticnet
+      class_weight:
+        - "balanced"
+        - 

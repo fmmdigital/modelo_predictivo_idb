@@ -1,0 +1,203 @@
+experimento:
+  id_experimento: 31
+  modelo: "sobretiempos"
+  descripcion: "todos los algoritmos, todos los datasets, dataset v4 sobretiempos"
+
+
+dummy_classifier:
+  script: "algoritmos/dummy_classifier.py"
+  datasets:
+    - "dataframe_ceros_v4"
+    - "dataframe_nuevenueve_v4"
+    - "dataframe_sinnulls_v4"
+    - "dataframe_v4"
+  resampling:
+    - 
+  scaling:
+    - "Standard"
+  hiperparametros:
+    strategy:
+      - 'stratified'
+
+
+random_forest:
+  script: "algoritmos/random_forest.py"
+  datasets:
+    - "dataframe_ceros_v4"
+    - "dataframe_nuevenueve_v4"
+    - "dataframe_sinnulls_v4"
+    - "dataframe_v4"
+  resampling:
+    - 
+  scaling:
+    - "Standard"
+    #- "No"
+  hiperparametros:
+    max_depth:
+    - Null
+    - 10
+    - 50
+    max_features:
+    - auto
+    min_samples_split:
+    - 2
+    - 5
+    - 10
+    n_estimators:
+    - 5
+    - 100
+    - 500
+    n_jobs:
+    - 4
+
+xgb:
+  script: "algoritmos/xgb.py"
+  datasets:
+    - "dataframe_ceros_v4"
+    - "dataframe_nuevenueve_v4"
+    - "dataframe_sinnulls_v4"
+    - "dataframe_v4"
+  resampling:
+    - 
+  scaling:
+    #- "No"
+    - "Standard"
+  hiperparametros:
+    n_estimators:
+      - 5
+      - 100
+      - 500
+    max_depth:
+      - 3
+      - 5
+      - 10
+    min_child_weight:
+      - 0.00001
+      - 0.01
+      #- 1
+    scale_pos_weight:
+      - 1
+      - 65
+      - 99
+    learning_rate:
+      - 0.05
+      - 0.3
+      - 1
+    n_jobs:
+      - 4
+
+regresion_logistica:
+  script: "algoritmos/logistic_regression.py"
+  datasets:
+    - "dataframe_ceros_v4"
+    - "dataframe_nuevenueve_v4"
+    - "dataframe_sinnulls_v4"
+  resampling:
+    - 
+  scaling:
+    - "Standard"
+  hiperparametros:
+    penalty:
+      - l1
+      - l2
+    C:
+      - 0.0001
+      - 0.001
+      - 1
+    #  - 10
+    random_state:
+      - 42
+    class_weight:
+      - "balanced"
+
+    #class_weight:
+    # - #{0:98,1:2} # Ver
+      
+adaboost:
+  script: "algoritmos/adaboost.py"
+  datasets:
+    - "dataframe_ceros_v4"
+    - "dataframe_nuevenueve_v4"
+    - "dataframe_sinnulls_v4"
+    - "dataframe_v4"
+  resampling:
+    - 
+  scaling:
+    - "Standard"
+  hiperparametros:
+     algorithm:
+       - SAMME
+       - SAMME.R
+     n_estimators:
+       - 1
+       - 10
+       - 100
+
+SVM:
+  script: "algoritmos/svm.py"
+  datasets:
+    - "dataframe_ceros_v4"
+    - "dataframe_nuevenueve_v4"
+    - "dataframe_sinnulls_v4"
+    - "dataframe_v4"
+  resampling:
+    - "SMOTEENN"
+  scaling:
+    - "Standard"
+  hiperparametros:
+      C:
+       - 1.0e-05
+       - 0.0001
+      # - 0.001
+       - 0.01
+      # - 0.1
+       - 1
+      # - 10
+      kernel:
+       - linear
+
+KNN:
+  script: "algoritmos/knn.py"
+  datasets:
+    - "dataframe_ceros_v4"
+    - "dataframe_nuevenueve_v4"
+    - "dataframe_sinnulls_v4"
+    - "dataframe_v4"
+  resampling:
+    - 
+  scaling:
+    - "Standard"
+  hiperparametros:
+      algorithm:
+       - auto
+       - ball_tree
+       - kd_tree
+      n_neighbors:
+       - 1
+       - 5
+       - 10
+       - 50
+      weights:
+       - uniform
+       - distance
+
+SGD:
+  script: "algoritmos/sgd.py"
+  datasets:
+    - "dataframe_ceros_v4"
+    - "dataframe_nuevenueve_v4"
+    - "dataframe_sinnulls_v4"
+    - "dataframe_v4"
+  resampling:
+    - 
+  scaling:
+    - "Standard"
+  hiperparametros:
+    loss:
+      - hinge
+      - log
+      - perceptron
+    penalty:
+      - l2
+      - l1
+      - elasticnet
